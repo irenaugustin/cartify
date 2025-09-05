@@ -39,7 +39,24 @@ const sampleProducts = [
     brand: "Glam",
     image: "/image/products/lipstick.jpg",
   },
+    {
+    id: "5",
+    name: "Accessories",
+    price: 2.99,
+    category: "Beauty",
+    brand: "vision",
+    image: "/image/products/accessories.jpg",
+  },
+    {
+    id: "6",
+    name: "Office and School Supplies",
+    price: 19.99,
+    category: "office and school supplies",
+    brand: "Eduglam",
+    image: "/image/products/office and school.jpg",
+  },
 ]
+
 
 export default function ShopPage() {
   const { addToCart } = useCart()

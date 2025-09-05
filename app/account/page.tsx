@@ -1,74 +1,81 @@
 'use client'
 
 import { useState } from "react"
+import { useI18n } from "@/contexts/I18nContext"
 
 export default function AccountPage() {
-  // Removed setProfile since we only read profile for now
-  const [profile] = useState({
-    name: "Irene Kalumna",
-    email: "irene@example.com",
-    phone: "+255 712 345 678",
-  })
+  const { language } = useI18n()
+  const [isLogin, setIsLogin] = useState(true)
 
-  const orders = [
-    { id: "1001", date: "2025-08-15", total: 149.99, status: "Delivered" },
-    { id: "1002", date: "2025-08-20", total: 59.99, status: "Processing" },
-  ]
-
-  const wishlist = [
-    { id: "1", name: "Smartwatch", price: 199.99 },
-    { id: "2", name: "Sunglasses", price: 49.99 },
-  ]
-
-  const addresses = [
-    { id: "a1", label: "Home", address: "123 Dar es Salaam, Tanzania" },
-    { id: "a2", label: "Office", address: "456 Arusha, Tanzania" },
-  ]
+  // Labels based on language
+  const labels = {
+    login: language === "en" ? "LOGIN" : "INGIA",
+    signup: language === "en" ? "SIGN UP" : "JISAJILI",
+    toContinue: language === "en" ? "TO CONTINUE" : "KWA KUENDELEA",
+    forAccount: language === "en" ? "FOR YOUR ACCOUNT" : "KWA AKAUNTI YAKO",
+    username: language === "en" ? "Username" : "Jina la Mtumiaji",
+    email: language === "en" ? "someone@gmail.com" : "barua@pepe.com",
+    password: language === "en" ? "••••••••••" : "••••••••••",
+    dontHave: language === "en" ? "Don't have an account?" : "Hauna akaunti?",
+    alreadyHave: language === "en" ? "Already have an account?" : "Tayari una akaunti?",
+    toggleLogin: language === "en" ? "Login" : "Ingia",
+    toggleSignUp: language === "en" ? "Sign Up" : "Jisajili",
+  }
 
   return (
-    <div className="space-y-8">
-      <h1 className="text-3xl font-bold mb-4">My Account</h1>
+    <div className="min-h-screen flex items-center justify-center bg-[#1E90FF] p-4">
+      <div className="w-full max-w-md bg-[#FFFFFF] shadow-xl rounded-2xl p-8 relative overflow-hidden">
+        {/* Decorative Background Waves */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-[#FFD700] opacity-30 rounded-t-[100%]"></div>
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-[#FF8C00] opacity-30 rounded-t-[100%]"></div>
 
-      {/* Profile Info */}
-      <section className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Profile Info</h2>
-        <p><strong>Name:</strong> {profile.name}</p>
-        <p><strong>Email:</strong> {profile.email}</p>
-        <p><strong>Phone:</strong> {profile.phone}</p>
-      </section>
+        {/* Header */}
+        <h2 className="text-2xl font-bold text-[#1E90FF] mb-2 text-center z-10 relative">
+          {isLogin ? labels.login : labels.signup}
+        </h2>
+        <p className="text-gray-600 mb-6 text-center z-10 relative">
+          {isLogin ? labels.toContinue : labels.forAccount}
+        </p>
 
-      {/* Order History */}
-      <section className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Order History</h2>
-        <div className="grid gap-2">
-          {orders.map(order => (
-            <div key={order.id} className="flex justify-between border-b py-2">
-              <span>Order #{order.id} ({order.date})</span>
-              <span>${order.total.toFixed(2)} - {order.status}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Form */}
+        <form className="flex flex-col gap-4 relative z-10">
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder={labels.username}
+              className="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1E90FF]"
+            />
+          )}
+          <input
+            type="email"
+            placeholder={labels.email}
+            className="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1E90FF]"
+          />
+          <input
+            type="password"
+            placeholder={labels.password}
+            className="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1E90FF]"
+          />
 
-      {/* Wishlist */}
-      <section className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Wishlist</h2>
-        <ul className="list-disc list-inside">
-          {wishlist.map(item => (
-            <li key={item.id}>{item.name} - ${item.price.toFixed(2)}</li>
-          ))}
-        </ul>
-      </section>
+          <button
+            type="submit"
+            className="bg-[#FF8C00] text-white font-semibold px-4 py-2 rounded-full hover:bg-[#FFD700] transition-colors mt-2"
+          >
+            {isLogin ? labels.login : labels.signup}
+          </button>
+        </form>
 
-      {/* Saved Addresses */}
-      <section className="bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Saved Addresses</h2>
-        <ul className="list-disc list-inside">
-          {addresses.map(addr => (
-            <li key={addr.id}>{addr.label}: {addr.address}</li>
-          ))}
-        </ul>
-      </section>
+        {/* Toggle Login/Register */}
+        <p className="text-center text-gray-600 mt-6 relative z-10">
+          {isLogin ? labels.dontHave : labels.alreadyHave}{" "}
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className="text-[#1E90FF] font-semibold hover:text-[#FF8C00] transition-colors"
+          >
+            {isLogin ? labels.toggleSignUp : labels.toggleLogin}
+          </button>
+        </p>
+      </div>
     </div>
   )
 }
