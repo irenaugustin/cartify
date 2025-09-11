@@ -19,9 +19,15 @@ export default function HomePage() {
       <section className="mt-12">
         <h2 className="text-2xl font-bold mb-6">Featured Categories</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow" key="1">Fashion</div>
-          <div className="bg-white p-6 rounded-lg shadow" key="2">Electronics</div>
-          <div className="bg-white p-6 rounded-lg shadow" key="3">Beauty</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="1">Fashion</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="2">Electronics</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="3">Beauty</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="4">Accessories</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="5">Office and education supplies</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="6">Wigs</div>
+          <div className="bg-purple-500  text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="7">Clothes</div>
+          <div className="bg-purple-500 text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="8">Shoes</div>
+          <div className="bg-purple-500 text-white p-6 h-32 flex items-center justify-center rounded-lg shadow" key="9">Home supplies</div>
         </div>
       </section>
     </main>

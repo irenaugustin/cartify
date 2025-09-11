@@ -20,7 +20,7 @@ export default function Navbar() {
           <Link href="/categories">{language === "en" ? "Categories" : "Jamii"}</Link>
           <Link href="/cart">{language === "en" ? "Cart" : "Kikapu"}</Link>
           <Link href="/account">{language === "en" ? "Profile" : "Profaili"}</Link>
-          <Link href="/contact">{language === "en" ? "Contact" : "Mawasiliano"}</Link>
+          <Link href="/setting">{language === "en" ? "Setting" : "Mpangilio"}</Link>
           <button onClick={toggleLanguage} className="ml-2 text-sm border px-2 py-1 rounded">
             {language === "en" ? "SW" : "EN"}
           </button>
@@ -40,7 +40,7 @@ export default function Navbar() {
           <Link href="/categories">{language === "en" ? "Categories" : "Jamii"}</Link>
           <Link href="/cart">{language === "en" ? "Cart" : "Kikapu"}</Link>
           <Link href="/account">{language === "en" ? "Profile" : "Profaili"}</Link>
-          <Link href="/contact">{language === "en" ? "Contact" : "Mawasiliano"}</Link>
+          <Link href="/setting">{language === "en" ? "Setting" : "Mpangilio"}</Link>
           <button onClick={toggleLanguage} className="mt-2 text-sm border px-2 py-1 rounded">
             {language === "en" ? "SW" : "EN"}
           </button>
