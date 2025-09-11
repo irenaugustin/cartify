@@ -1,26 +1,79 @@
-'use client'   // <-- Add this line at the top
+'use client'
 
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useI18n } from "@/contexts/I18nContext"
+import {
+  Home,
+  ShoppingCart,
+  Package,
+  User,
+  Settings,
+  Grid
+} from "lucide-react"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
   const { language, toggleLanguage } = useI18n()
+  const pathname = usePathname() // Get current path for active link
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (searchTerm.trim()) {
+      window.location.href = `/shop?search=${encodeURIComponent(searchTerm)}`
+    }
+  }
+
+  const links = [
+    { href: "/", labelEn: "Home", labelSw: "Nyumbani", icon: <Home size={18} /> },
+    { href: "/shop", labelEn: "Shop", labelSw: "Duka", icon: <ShoppingCart size={18} /> },
+    { href: "/categories", labelEn: "Categories", labelSw: "Jamii", icon: <Grid size={18} /> },
+    { href: "/cart", labelEn: "Cart", labelSw: "Kikapu", icon: <Package size={18} /> },
+    { href: "/account", labelEn: "Profile", labelSw: "Profaili", icon: <User size={18} /> },
+    { href: "/setting", labelEn: "Setting", labelSw: "Mpangilio", icon: <Settings size={18} /> },
+  ]
 
   return (
     <header className="bg-white shadow sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-green-600">Cartify</Link>
 
+        {/* Search Bar */}
+        <form onSubmit={handleSearch} className="hidden md:flex flex-1 mx-8">
+          <input
+            type="text"
+            placeholder={language === "en" ? "Search products..." : "Tafuta bidhaa..."}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          <button
+            type="submit"
+            className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-500"
+          >
+            {language === "en" ? "Search" : "Tafuta"}
+          </button>
+        </form>
+
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-6 text-gray-700">
-          <Link href="/">{language === "en" ? "Home" : "Nyumbani"}</Link>
-          <Link href="/shop">{language === "en" ? "Shop" : "Duka"}</Link>
-          <Link href="/categories">{language === "en" ? "Categories" : "Jamii"}</Link>
-          <Link href="/cart">{language === "en" ? "Cart" : "Kikapu"}</Link>
-          <Link href="/account">{language === "en" ? "Profile" : "Profaili"}</Link>
-          <Link href="/setting">{language === "en" ? "Setting" : "Mpangilio"}</Link>
+        <nav className="hidden md:flex gap-6 text-gray-700 items-center">
+          {links.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-1 px-2 py-1 rounded hover:text-green-600 transition-colors ${
+                  isActive ? "text-green-600 font-semibold" : ""
+                }`}
+              >
+                {link.icon} {language === "en" ? link.labelEn : link.labelSw}
+              </Link>
+            )
+          })}
           <button onClick={toggleLanguage} className="ml-2 text-sm border px-2 py-1 rounded">
             {language === "en" ? "SW" : "EN"}
           </button>
@@ -35,12 +88,38 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="md:hidden bg-white px-4 pb-4 flex flex-col gap-2">
-          <Link href="/">{language === "en" ? "Home" : "Nyumbani"}</Link>
-          <Link href="/shop">{language === "en" ? "Shop" : "Duka"}</Link>
-          <Link href="/categories">{language === "en" ? "Categories" : "Jamii"}</Link>
-          <Link href="/cart">{language === "en" ? "Cart" : "Kikapu"}</Link>
-          <Link href="/account">{language === "en" ? "Profile" : "Profaili"}</Link>
-          <Link href="/setting">{language === "en" ? "Setting" : "Mpangilio"}</Link>
+          {/* Mobile Search */}
+          <form onSubmit={handleSearch} className="flex mb-2">
+            <input
+              type="text"
+              placeholder={language === "en" ? "Search products..." : "Tafuta bidhaa..."}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+            <button
+              type="submit"
+              className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-500"
+            >
+              {language === "en" ? "Search" : "Tafuta"}
+            </button>
+          </form>
+
+          {links.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-2 px-2 py-1 rounded hover:text-purple-500 transition-colors ${
+                  isActive ? "text-green-600 font-semibold" : "text-gray-700"
+                }`}
+              >
+                {link.icon} {language === "en" ? link.labelEn : link.labelSw}
+              </Link>
+            )
+          })}
+
           <button onClick={toggleLanguage} className="mt-2 text-sm border px-2 py-1 rounded">
             {language === "en" ? "SW" : "EN"}
           </button>
