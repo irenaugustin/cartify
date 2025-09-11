@@ -10,14 +10,15 @@ import {
   Package,
   User,
   Settings,
-  Grid
+  Grid,
+  Search
 } from "lucide-react"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
   const { language, toggleLanguage } = useI18n()
-  const pathname = usePathname() // Get current path for active link
+  const pathname = usePathname()
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -52,9 +53,10 @@ export default function Navbar() {
           />
           <button
             type="submit"
-            className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-500"
+            className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-600 flex items-center justify-center"
+            aria-label="Search"
           >
-            {language === "en" ? "Search" : "Tafuta"}
+            <Search size={18} />
           </button>
         </form>
 
@@ -99,9 +101,10 @@ export default function Navbar() {
             />
             <button
               type="submit"
-              className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-500"
+              className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-600 flex items-center justify-center"
+              aria-label="Search"
             >
-              {language === "en" ? "Search" : "Tafuta"}
+              <Search size={18} />
             </button>
           </form>
 

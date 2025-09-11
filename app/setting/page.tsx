@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Bell,
+  Info,
+  DollarSign,
+  Truck,
+  HelpCircle,
+  FileText,
+} from "lucide-react";
 
 export default function SettingsPage() {
   const [currency, setCurrency] = useState("TZS");
-
   const [openSection, setOpenSection] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
@@ -27,10 +34,10 @@ export default function SettingsPage() {
       {/* Contact Preferences */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("contact")}
         >
-          Contact Preferences
+          <Bell size={20} /> Contact Preferences
         </button>
         {openSection === "contact" && (
           <p className="text-gray-600 px-4 py-2">
@@ -42,10 +49,10 @@ export default function SettingsPage() {
       {/* About Cartify */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("about")}
         >
-          About Cartify
+          <Info size={20} /> About Cartify
         </button>
         {openSection === "about" && (
           <div className="px-4 py-2">
@@ -58,8 +65,8 @@ export default function SettingsPage() {
 
             <h3 className="font-bold mt-4">Our Vision</h3>
             <p>
-              To become a leading e-commerce platform in Africa and beyond,
-              known for trust, quality, and excellent customer experience.
+              To become a leading e-commerce platform in Africa and beyond, known
+              for trust, quality, and excellent customer experience.
             </p>
 
             <h3 className="font-bold mt-4">Our Services</h3>
@@ -76,10 +83,10 @@ export default function SettingsPage() {
       {/* Currency Options */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("currency")}
         >
-          Currency Options
+          <DollarSign size={20} /> Currency Options
         </button>
         {openSection === "currency" && (
           <div className="px-4 py-2">
@@ -108,10 +115,10 @@ export default function SettingsPage() {
       {/* Logistics Services */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("logistics")}
         >
-          Logistics Services
+          <Truck size={20} /> Logistics Services
         </button>
         {openSection === "logistics" && (
           <p className="text-gray-600 px-4 py-2">
@@ -124,10 +131,10 @@ export default function SettingsPage() {
       {/* Help Center */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("help")}
         >
-          Help Center
+          <HelpCircle size={20} /> Help Center
         </button>
         {openSection === "help" && (
           <p className="text-gray-600 px-4 py-2">
@@ -140,10 +147,10 @@ export default function SettingsPage() {
       {/* Legal Notice */}
       <section>
         <button
-          className="w-full text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
+          className="w-full flex items-center gap-2 text-left text-xl font-semibold mb-2 bg-gray-100 px-4 py-2 rounded hover:bg-gray-200"
           onClick={() => toggleSection("legal")}
         >
-          Legal Notice
+          <FileText size={20} /> Legal Notice
         </button>
         {openSection === "legal" && (
           <ul className="list-disc ml-6 px-4 py-2">
