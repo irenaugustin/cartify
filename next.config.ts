@@ -1,10 +1,14 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["via.placeholder.com"], // allow external images from this host
+    domains: [
+      "www.paypalobjects.com",
+      "upload.wikimedia.org",
+      "assets.airtel.in",
+      "upload.wikimedia.org", // needed for M-Pesa and Airtel logos
+    ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
