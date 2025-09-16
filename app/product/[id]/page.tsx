@@ -12,7 +12,10 @@ const sampleProducts = [
   { id: "3", name: "Sneakers", price: 89.99, stock: 3, description: "Comfortable sneakers for daily wear.", image: "https://via.placeholder.com/400x400.png?text=Sneakers" },
   { id: "4", name: "Lipstick", price: 19.99, stock: 15, description: "Long-lasting matte lipstick.", image: "https://via.placeholder.com/400x400.png?text=Lipstick" },
   { id: "5", name: "Accessories", price: 2.99, stock: 7, description: "Beautiful accessories for luxury look.", image: "https://via.placeholder.com/400x400.png?text=Accessories" },
-  { id: "6", name: "Office and School Supplies", price: 15.49, stock: 20, description: "Essential office and school supplies.", image: "https://via.placeholder.com/400x400.png?text=office+and+school+supplies" }
+  { id: "6", name: "Office and School Supplies", price: 15.49, stock: 20, description: "Essential office and school supplies.", image: "https://via.placeholder.com/400x400.png?text=office+and+school+supplies" },
+  { id: "7", name: "6th Generation Airpods", price: 40.99, stock: 10, description: "High quality Airpods.", image: "https://via.placeholder.com/400x400.png?text=Airpods" },
+  { id: "8", name: "Iphone 16 Pro Max", price: 999.99, stock: 8, description: "Latest iPhone with advanced features.", image: "https://via.placeholder.com/400x400.png?text=iPhone+16+Pro+Max" },
+  { id: "9", name: "Mac Book Pro ", price: 234.99, stock: 10, description: "Latest Mac Book with advanced features.", image: "https://via.placeholder.com/400x400.png?text=Mac Book Pro" },
 ]
 
 export default function ProductPage({ params }: { params: { id: string } }) {

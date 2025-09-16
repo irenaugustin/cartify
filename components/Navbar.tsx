@@ -40,7 +40,7 @@ export default function Navbar() {
     <header className="bg-white shadow sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-green-600">Cartify</Link>
+        <Link href="/" className="text-2xl font-bold text-black">Cartify</Link>
 
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="hidden md:flex flex-1 mx-8">
@@ -49,11 +49,11 @@ export default function Navbar() {
             placeholder={language === "en" ? "Search products..." : "Tafuta bidhaa..."}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
           />
           <button
             type="submit"
-            className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-600 flex items-center justify-center"
+            className="bg-gray-300 text-black px-4 py-2 rounded-r-lg hover:bg-gray-400 flex items-center justify-center"
             aria-label="Search"
           >
             <Search size={18} />
@@ -68,21 +68,29 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-1 px-2 py-1 rounded hover:text-green-600 transition-colors ${
-                  isActive ? "text-green-600 font-semibold" : ""
+                className={`flex items-center gap-1 px-2 py-1 rounded hover:text-black transition-colors ${
+                  isActive ? "text-black font-semibold" : ""
                 }`}
               >
                 {link.icon} {language === "en" ? link.labelEn : link.labelSw}
               </Link>
             )
           })}
-          <button onClick={toggleLanguage} className="ml-2 text-sm border px-2 py-1 rounded">
+          <button
+            onClick={toggleLanguage}
+            className="ml-2 text-sm border px-2 py-1 rounded"
+            aria-label="Toggle language"
+          >
             {language === "en" ? "SW" : "EN"}
           </button>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
           ☰
         </button>
       </div>
@@ -97,11 +105,11 @@ export default function Navbar() {
               placeholder={language === "en" ? "Search products..." : "Tafuta bidhaa..."}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="flex-1 border rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
             />
             <button
               type="submit"
-              className="bg-purple-500 text-white px-4 py-2 rounded-r-lg hover:bg-purple-600 flex items-center justify-center"
+              className="bg-gray-300 text-black px-4 py-2 rounded-r-lg hover:bg-gray-400 flex items-center justify-center"
               aria-label="Search"
             >
               <Search size={18} />
@@ -114,8 +122,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-2 px-2 py-1 rounded hover:text-purple-500 transition-colors ${
-                  isActive ? "text-green-600 font-semibold" : "text-gray-700"
+                className={`flex items-center gap-2 px-2 py-1 rounded hover:text-black transition-colors ${
+                  isActive ? "text-black font-semibold" : "text-gray-700"
                 }`}
               >
                 {link.icon} {language === "en" ? link.labelEn : link.labelSw}
@@ -123,7 +131,11 @@ export default function Navbar() {
             )
           })}
 
-          <button onClick={toggleLanguage} className="mt-2 text-sm border px-2 py-1 rounded">
+          <button
+            onClick={toggleLanguage}
+            className="mt-2 text-sm border px-2 py-1 rounded"
+            aria-label="Toggle language"
+          >
             {language === "en" ? "SW" : "EN"}
           </button>
         </nav>

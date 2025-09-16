@@ -26,7 +26,7 @@ export default function HomePage() {
           <Image src="/hero/charger.jpg" alt="Charger" width={120} height={120} />
           <Image src="/hero/iphone.jpg" alt="iPhone" width={300} height={200} />
           <Image src="/hero/samsung.jpg" alt="Samsung phones" width={300} height={200} />
-           <Image src="/hero/headphone.jpg" alt="head phones" width={300} height={300} />
+          <Image src="/hero/headphone.jpg" alt="head phones" width={300} height={300} />
         </div>
       </section>
 
@@ -73,9 +73,11 @@ export default function HomePage() {
             height={150}
             className="object-cover"
           />
-          <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg">
-            Shop Now
-          </button>
+          <Link href="/shop">
+            <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
+              Shop Now
+            </button>
+          </Link>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
@@ -88,9 +90,11 @@ export default function HomePage() {
             height={150}
             className="object-cover"
           />
-          <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg">
-            Shop Now
-          </button>
+          <Link href="/shop">
+            <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
+              Shop Now
+            </button>
+          </Link>
         </div>
 
         <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
@@ -103,9 +107,11 @@ export default function HomePage() {
             height={150}
             className="object-cover"
           />
-          <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg">
-            Shop Now
-          </button>
+          <Link href="/shop">
+            <button className="mt-4 bg-pink-600 text-white px-4 py-2 rounded-lg hover:bg-pink-700">
+              Shop Now
+            </button>
+          </Link>
         </div>
       </section>
     </main>

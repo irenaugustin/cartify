@@ -55,6 +55,29 @@ const sampleProducts = [
     brand: "Eduglam",
     image: "/image/products/office and school.jpg",
   },
+{
+    id: "7",
+    name: "6th Generation Airpods",
+    price: 40.99,
+    category: "Electronics",
+    brand: "Apple",
+    image: "/image/products/airpods6.jpg",
+  }, {
+    id: "8",
+    name: "Iphone 16 Pro Max",
+    price: 999.99,
+    category: "Electronics",
+    brand: "Apple",
+    image: "/image/products/iphone16.jpg",
+  },
+  {
+    id: "9",
+    name: "Mac Book Pro",
+    price: 234.99,
+    category: "Electronics",
+    brand: "Apple",
+    image: "/image/products/macbook.jpg",
+  },
 ]
 
 
@@ -130,7 +153,7 @@ export default function ShopPage() {
             <p className="text-green-600 font-bold mb-2">${product.price}</p>
             <button
               onClick={() => addToCart(product, 1)}
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+              className="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700"
             >
               Add to Cart
             </button>
