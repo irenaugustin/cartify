@@ -24,9 +24,8 @@ export default function HomePage() {
           <Image src="/hero/airpods.jpg" alt="Airpods" width={100} height={100} />
           <Image src="/hero/watch.jpg" alt="Watch" width={120} height={120} />
           <Image src="/hero/charger.jpg" alt="Charger" width={120} height={120} />
-          <Image src="/hero/iphone.jpg" alt="iPhone" width={300} height={200} />
-          <Image src="/hero/samsung.jpg" alt="Samsung phones" width={300} height={200} />
-          <Image src="/hero/headphone.jpg" alt="head phones" width={300} height={300} />
+          <Image src="/hero/iphone.jpg" alt="iPhone" width={400} height={500} />
+          
         </div>
       </section>
 
